@@ -28,12 +28,12 @@ class DocComment {
     }
 
     /**
-     * Deal with the comments
+     * Prepare the comments
      *
      * @param array $comments
      * @return array
      */
-    public static function process(array $comments): array {
+    public static function prepare(array $comments): array {
         foreach ($comments as &$comment) {
             $lines = explode("\n", $comment);
             $rslt = "";
@@ -45,6 +45,63 @@ class DocComment {
             $comment = $rslt;
         }
         return $comments;
+    }
+
+    /**
+     * Process the comments
+     *
+     * @param array $comments
+     * @return array
+     */
+    public static function process(array $comments): array {
+        foreach ($comments as $key=>&$comment) {
+            $rslt = ["description" => []];
+            $curr = "";
+            foreach (explode("\n", $comment) as $line) {
+                if (substr($line, 0, 1) !== '@') {
+                    if ($curr === "") $curr = "description";
+                    $rslt[$curr] = array_merge($rslt[$curr], self::explodeWithBrackets($line, " ", '[', ']'));
+                } else {
+                    $ex = self::explodeWithBrackets($line, " ", '[', ']');
+                    $curr = substr($ex[0], 1);
+                    $rslt[$curr] = array_slice($ex, 1);
+                }
+            }
+            $comment = $rslt;
+        }
+        return $comments;
+    }
+
+    /**
+     * Explode a string with brackets
+     *
+     * @param string $str
+     * @param string $bracket
+     * @return array
+     */
+    public static function explodeWithBrackets(string $str, string $delimiter, string $_bracket, string $bracket_): array {
+        $rslt = [""];
+        $str = str_split($str);
+        $depth = 0;
+        $curr = 0;
+        foreach ($str as $k=>$ch) {
+            if ($depth < 0) return explode($delimiter, $str);
+            if ($ch === $_bracket && $str[$k - 1] !== '\\') ++ $depth;
+            else if ($ch === $bracket_ && $str[$k - 1] !== '\\') -- $depth;
+            else if ($ch === $delimiter) {
+                if ($depth === 0) {
+                    ++ $curr;
+                    $rslt[$curr] = "";
+                } else $rslt[$curr] .= $delimiter;
+            }
+            else if ($ch === '\\' && ($str[$k + 1] === $_bracket || $str[$k + 1] === $bracket_))
+                $rslt[$curr] .= '';
+            else {
+                $rslt[$curr] .= $ch;
+            }
+        }
+        if ($rslt === [""]) return [];
+        return $rslt;
     }
 
 }
