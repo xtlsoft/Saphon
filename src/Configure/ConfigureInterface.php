@@ -7,8 +7,8 @@
  * @package Saphon
  */
 
-namespace Saphon;
+namespace Saphon\Configure;
 
-class Runner {
-
+interface ConfigureInterface {
+    
 }

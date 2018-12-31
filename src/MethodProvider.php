@@ -11,4 +11,11 @@ namespace Saphon;
 
 abstract class MethodProvider {
     
+    /**
+     * Constructor
+     */
+    public function __construct() {
+        
+    }
+
 }

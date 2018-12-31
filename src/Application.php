@@ -10,19 +10,12 @@
 namespace Saphon;
 
 abstract class Application extends MethodProvider {
-    
-    /**
-     * The methods
-     *
-     * @var array
-     */
-    protected $methods = [];
 
     /**
      * Constructor
      */
     public function __construct() {
-
+        parent::__construct();
     }
 
     /**
