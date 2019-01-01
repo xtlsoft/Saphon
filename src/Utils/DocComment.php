@@ -54,17 +54,20 @@ class DocComment {
      * @return array
      */
     public static function process(array $comments): array {
+        static $multiple = ['param'];
         foreach ($comments as $key=>&$comment) {
             $rslt = ["description" => []];
             $curr = "";
             foreach (explode("\n", $comment) as $line) {
                 if (substr($line, 0, 1) !== '@') {
                     if ($curr === "") $curr = "description";
-                    $rslt[$curr] = array_merge($rslt[$curr], self::explodeWithBrackets($line, " ", '[', ']'));
+                    if (in_array($curr, $multiple)) $rslt[$curr][count($rslt[$curr]) - 1] = array_merge($rslt[$curr][count($rslt[$curr]) - 1], self::explodeWithBrackets($line, " ", '[', ']'));
+                    else $rslt[$curr] = array_merge($rslt[$curr], self::explodeWithBrackets($line, " ", '[', ']'));
                 } else {
                     $ex = self::explodeWithBrackets($line, " ", '[', ']');
                     $curr = substr($ex[0], 1);
-                    $rslt[$curr] = array_slice($ex, 1);
+                    if (in_array($curr, $multiple)) $rslt[$curr][] = array_slice($ex, 1);
+                    else $rslt[$curr] = array_slice($ex, 1);
                 }
             }
             $comment = $rslt;

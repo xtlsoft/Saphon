@@ -19,11 +19,11 @@ class Parameter implements ConfigureInterface {
     public $name = ["help"];
 
     /**
-     * The description of the parameter
+     * The type of the parameter
      * 
      * @var string
      */
-    public $description = "No description given.";
+    public $type = "mixed";
 
     /**
      * The mapping variable
@@ -31,5 +31,12 @@ class Parameter implements ConfigureInterface {
      * @var string
      */
     public $mapping = '$help';
+
+    /**
+     * Is a flag
+     *
+     * @var boolean
+     */
+    public $flag = true;
 
 }

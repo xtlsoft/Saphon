@@ -37,6 +37,25 @@ class Parser {
                 $au->mail = trim(substr(trim(explode("<", join(" ", $chk(@$value['author'])))[1]), 0, -1));
                 $r->author = $au;
                 $rslt[$key] = $r;
+            } else {
+                if (!isset($value['name'][0])) continue;
+                $r = new C\Method;
+                $r->name = \Saphon\Utils\DocComment::explodeWithBrackets($chk(@$value['name'])[0], '|', '[', ']');
+                $r->description = join(" ", $chk(@$value['description']));
+                $r->parameter = [];
+                foreach ($chk(@$value['param']) as $param) {
+                    $p = new C\Parameter;
+                    $p->type = $param[0];
+                    $p->name = \Saphon\Utils\DocComment::explodeWithBrackets($param[2], '|', '[', ']');
+                    $p->mapping = $param[1];
+                    $r->parameter[] = $p;
+                    $p->flag = false;
+                    $properties = \Saphon\Utils\DocComment::explodeWithBrackets($param[3], '|', '[', ']');
+                    foreach ($properties as $property) {
+                        if ($property === "flag") $p->flag = true;
+                    }
+                }
+                $rslt[$key] = $r;
             }
         }
         return $rslt;
