@@ -40,7 +40,6 @@ namespace Saphon\Docs\CodeStyle;
 
 /**
  * An example of classes.
- *
  */
 class ExampleClass {
 
