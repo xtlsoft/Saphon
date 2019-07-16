@@ -5,8 +5,11 @@ composer.phar
 # You may choose to ignore a library lock file http://getcomposer.org/doc/02-libraries.md#lock-file
 # composer.lock
 
-# VSCode temp directory
+# VSCode directory
 /.vscode/
 
-# DevTests
-/dev-test.php
+# files used when developing
+dev-*
+
+# logs
+*.log

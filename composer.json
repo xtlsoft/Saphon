@@ -1,14 +1,12 @@
 {
   "name": "xtlsoft/saphon",
-  "description": "Saphon is an elegant CLI framework.",
+  "description": "Re-define web development.",
   "type": "library",
   "license": "MIT",
-  "authors": [
-    {
-      "name": "Tianle Xu",
-      "email": "xtl@xtlsoft.top"
-    }
-  ],
+  "authors": [{
+    "name": "Tianle Xu",
+    "email": "xtl@xtlsoft.top"
+  }],
   "require": {},
   "autoload": {
     "psr-4": {
