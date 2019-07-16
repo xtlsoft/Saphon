@@ -20,7 +20,7 @@ A pull request can be merged only when @xtlsoft accepts it at this stage.
 
 ### Code style
 
-Exmaple:
+Example:
 
 ```php
 <?php
