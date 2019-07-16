@@ -20,10 +20,15 @@ A pull request can be merged only when @xtlsoft accepts it at this stage.
 
 ### Code style
 
+Follow PSR-12 extended code style guide.
+
+[https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md](https://github.com/php-fig/fig-standards/blob/master/proposed/extended-coding-style-guide.md)
+
 Example:
 
 ```php
 <?php
+
 /**
  * The file is a part of Saphon
  * project. Please use it under
@@ -41,8 +46,8 @@ namespace Saphon\Docs\CodeStyle;
 /**
  * An example of classes.
  */
-class ExampleClass {
-
+class ExampleClass
+{
     /**
      * ID of this class
      *
@@ -55,7 +60,8 @@ class ExampleClass {
      *
      * @param integer $id
      */
-    public function __construct(int $id) {
+    public function __construct(int $id)
+    {
         $this->id = $id;
     }
 
@@ -65,11 +71,11 @@ class ExampleClass {
      * @param integer $id
      * @return self
      */
-    public function setId(int $id): self {
+    public function setId(int $id): self
+    {
         $this->id = $id;
         return $this;
     }
-
 }
 ```
 

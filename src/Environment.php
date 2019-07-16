@@ -20,7 +20,6 @@ namespace Saphon;
  */
 class Environment
 {
-
     /**
      * Cache of Saphon's version
      *
