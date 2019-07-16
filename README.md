@@ -77,3 +77,5 @@ class ExampleClass {
 ### Commit style
 
 See [https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines](https://github.com/angular/angular.js/blob/master/DEVELOPERS.md#-git-commit-guidelines).
+
+You'd better sign your commits with a PGP key.
