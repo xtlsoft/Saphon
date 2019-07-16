@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The file is a part of Saphon
  * project. Please use it under
@@ -17,7 +18,8 @@ namespace Saphon;
  * Class Environment provides utilities
  * to deal with current environment.
  */
-class Environment {
+class Environment
+{
 
     /**
      * Cache of Saphon's version
@@ -31,7 +33,8 @@ class Environment {
      *
      * @return string
      */
-    public static function getVersion(): string {
+    public static function getVersion(): string
+    {
         if (self::$_version) return self::$_version;
         $version_file = dirname(__DIR__) . "/VERSION";
         $version_string = '';
@@ -63,4 +66,13 @@ class Environment {
         return $version_string;
     }
 
+    /**
+     * Get PHP's SAPI name
+     *
+     * @return string
+     */
+    public static function getSapi(): string
+    {
+        return php_sapi_name();
+    }
 }
