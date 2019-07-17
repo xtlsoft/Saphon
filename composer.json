@@ -13,7 +13,13 @@
       "Saphon\\": "./src/"
     }
   },
+  "autoload-dev": {
+    "psr-4": {
+      "Saphon\\Tests\\": "./tests/"
+    }
+  },
   "require-dev": {
-    "vimeo/psalm": "^3.4"
+    "vimeo/psalm": "^3.4",
+    "phpunit/phpunit": "^8.2"
   }
 }
