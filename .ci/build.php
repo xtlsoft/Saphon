@@ -12,5 +12,12 @@
  * @link     https://github.com/xtlsoft/Saphon/
  */
 
-// No tests available
+
+// Psalm check (grammar, style...)
+$psalm_exec = dirname(__DIR__) . '/vendor/bin/psalm';
+if (system($psalm_exec) === false) {
+    echo "[!] Psalm check failed.\r\n";
+    exit(-1);
+}
+
 exit(0);

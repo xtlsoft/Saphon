@@ -12,5 +12,8 @@
     "psr-4": {
       "Saphon\\": "./src/"
     }
+  },
+  "require-dev": {
+    "vimeo/psalm": "^3.4"
   }
 }
