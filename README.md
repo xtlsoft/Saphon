@@ -1,4 +1,6 @@
 # Saphon
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fxtlsoft%2FSaphon.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fxtlsoft%2FSaphon?ref=badge_shield)
+
 
 Re-define web development.
 
@@ -78,6 +80,9 @@ class ExampleClass
     }
 }
 ```
+
+
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fxtlsoft%2FSaphon.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fxtlsoft%2FSaphon?ref=badge_large)
 
 ### Commit style
 
