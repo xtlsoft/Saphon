@@ -34,14 +34,17 @@ class Environment
      */
     public static function getVersion(): string
     {
-        if (self::$_version) return self::$_version;
+        if (self::$_version)
+            return self::$_version;
+
+        // from file
         $version_file = dirname(__DIR__) . "/VERSION";
-        $version_string = '';
         if (file_exists($version_file)) {
-            $version_string = file_get_contents($version_file);
-        } else {
-            $version_string = "0.0.0-unknown";
+            self::$_version = $version_string = file_get_contents($version_file);
+            return self::$_version
         }
+
+        // from .git
         $git_head_file = dirname(__DIR__) . "/.git/HEAD";
         if (file_exists($git_head_file)) {
             $lines = explode("\n", trim(file_get_contents($git_head_file)));
@@ -57,12 +60,14 @@ class Environment
                 $commit_hash = substr(trim($lines[0]), 0, 7);
             else
                 $commit_hash = substr(trim(file_get_contents($next_file)), 0, 7);
-            $version_string = "$version_string-git$commit_hash";
-        } else {
-            $version_string .= "-packed";
+
+            self::$_version = $version_string = "$version_string-git$commit_hash";
+            return self::$_version
         }
-        self::$_version = $version_string;
-        return $version_string;
+
+        self::$_version = $version_string = "0.0.0-unknown";
+
+        return self::$_version;
     }
 
     /**
