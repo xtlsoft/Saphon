@@ -6,7 +6,7 @@ Stage: WIP
 
 ## Concept Documentation
 
-[Concept of Saphon.md](doc/Concept of Saphon.md)
+[Concept of Saphon](docs/concept_of_saphon.md)
 
 ## Development
 
