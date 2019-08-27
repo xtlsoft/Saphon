@@ -13,4 +13,4 @@ dev-*
 
 # logs
 *.log
-.phpunit.result.cache
+/.phpunit.result.cache/
