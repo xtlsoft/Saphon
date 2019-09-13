@@ -12,10 +12,7 @@
  * @link     https://github.com/xtlsoft/Saphon/
  */
 
-namespace Saphon\Tests;
+namespace Saphon\Protocol\Middleware;
 
-require dirname(__DIR__) . '/vendor/autoload.php';
-
-date_default_timezone_set('UTC');
-
-error_reporting(E_ALL);
+interface MiddlewareInterface
+{ }

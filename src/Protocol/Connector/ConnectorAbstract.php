@@ -12,10 +12,12 @@
  * @link     https://github.com/xtlsoft/Saphon/
  */
 
-namespace Saphon\Tests;
+namespace Saphon\Protocol;
 
-require dirname(__DIR__) . '/vendor/autoload.php';
-
-date_default_timezone_set('UTC');
-
-error_reporting(E_ALL);
+abstract class ConnectorAbstract
+{
+    public function __construct()
+    {
+        // Nothing
+    }
+}

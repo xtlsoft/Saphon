@@ -4,6 +4,10 @@ Re-define web development.
 
 Stage: WIP
 
+## Concept Documentation
+
+[Concept of Saphon](docs/concept_of_saphon.md)
+
 ## Development
 
 This project is still under development.
